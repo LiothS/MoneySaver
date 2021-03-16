@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/welcome"
+    tools:context=".Activity.WelcomeScreen">
+
+    <TextView
+        android:id="@+id/appName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:fontFamily="More Fonts..."
+        android:text="Money Saver App"
+        android:textColor="@color/white"
+        android:textSize="32dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/raleway"
+        android:gravity="center_horizontal"
+        android:text="Saving your money per month with this app"
+        android:textColor="@color/white"
+        android:textSize="16dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="Start"
+        android:id="@+id/startBtn"
+        android:paddingTop="28dp"
+        android:paddingLeft="44dp"
+        android:paddingRight="44dp"
+        android:background="@drawable/start_bg"
+        android:paddingBottom="28dp"
+        android:fontFamily="@font/raleway_bold"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        />
+</RelativeLayout>
