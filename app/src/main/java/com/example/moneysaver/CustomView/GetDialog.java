@@ -101,7 +101,7 @@ public class GetDialog extends Dialog implements View.OnClickListener {
                     }
                     NumberFormat formatter = new DecimalFormat("#,###");
                     String formattedNumber = formatter.format(amount);
-                    sharePrefHelper.putString("lastTransAmount","+"+formattedNumber);
+                    sharePrefHelper.putString("lastTransAmount","-"+formattedNumber);
                     sharePrefHelper.putString("lastTransTitle","Add money");
                     String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
