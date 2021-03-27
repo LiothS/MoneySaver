@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/thisMonth"
-            android:text="this month"
+            android:text="until now"
             android:alpha="0.65"
             android:layout_marginBottom="10dp"
             android:textColor="@color/black"

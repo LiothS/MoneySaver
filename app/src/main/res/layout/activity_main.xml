@@ -233,7 +233,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Last Transactions"
+                android:text="Last Transaction"
                 android:textSize="20dp"
                 android:id="@+id/transaction"
                 android:textColor="@color/white"
@@ -241,12 +241,68 @@
                 android:fontFamily="@font/raleway_bold"
                 android:layout_marginLeft="16dp"
                 />
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/rvHistory"
-                />
 
+            <RelativeLayout
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:orientation="vertical"
+                        android:background="@drawable/action_bg"
+                        android:id="@+id/actionImage"
+                        >
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/get_money"
+                            />
+                    </LinearLayout>
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/actionImage"
+                    android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
+                    android:ellipsize="end"
+                    android:id="@+id/trans_title"
+                    android:maxLines="1"
+                   android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:text="Add money to bank"
+                    />
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                 android:layout_below="@id/trans_title"
+                    android:layout_toRightOf="@id/actionImage"
+                    android:layout_marginLeft="20dp"
+                    android:ellipsize="end"
+                    android:id="@+id/trans_day"
+                    android:maxLines="1"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    android:alpha="0.65"
+                    android:text="Tues, 11th"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:textStyle="bold"
+                    android:ellipsize="end"
+                    android:id="@+id/trans_amount"
+                    android:maxLines="1"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:layout_centerVertical="true"
+                    android:text="+100000"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
 

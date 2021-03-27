@@ -16,6 +16,12 @@ import androidx.annotation.Nullable;
 import com.example.moneysaver.R;
 import com.example.moneysaver.Ultils.SharePrefHelper;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class AddDialog extends Dialog implements View.OnClickListener {
     public AddDialog(@NonNull Context context) {
         super(context);
@@ -78,7 +84,15 @@ public class AddDialog extends Dialog implements View.OnClickListener {
                         sharePrefHelper.putInt("Total",sharePrefHelper.getInt("Total")+amount);
                         sharePrefHelper.putInt("Free",sharePrefHelper.getInt("Free")+amount);
                     }
+                    NumberFormat formatter = new DecimalFormat("#,###");
+                    String formattedNumber = formatter.format(amount);
+                    sharePrefHelper.putString("lastTransAmount","+"+formattedNumber);
+                    sharePrefHelper.putString("lastTransTitle","Add money");
+                    String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+
+                    sharePrefHelper.putString("lastTransDay",currentDate);
                 }
+
                 cancel();
             }
         });

@@ -5,6 +5,7 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -17,13 +18,15 @@ import android.widget.TextView;
 import com.example.moneysaver.Adapter.CustomFragmentPager;
 import com.example.moneysaver.CustomView.AddDialog;
 import com.example.moneysaver.CustomView.GetDialog;
+import com.example.moneysaver.CustomView.GoalDialog;
 import com.example.moneysaver.Ultils.FontSetting;
+import com.example.moneysaver.Ultils.SharePrefHelper;
 
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     FontSetting fontSetting;
-    TextView cardBtn,detailBtn,goalBtn,tvOperations,tvAdd,tvGet,tvGoal,tvNote,tvTransactions;
+    TextView cardBtn,detailBtn,goalBtn,tvOperations,tvAdd,tvGet,tvGoal,tvNote,tvTransactions,lastTransTittle,lastTransDay,lastTransAmount;
     CardView addCard,getCard,goalCard,noteCard;
     ImageView exitBtn,settingBtn;
     ViewPager viewPager;
@@ -50,7 +53,22 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+        viewPager.setCurrentItem(1);
+        detailBtn.setTypeface(fontSetting.getTf3());
+        detailBtn.setTextColor(getResources().getColor(R.color.orange));
+        cardBtn.setTypeface(fontSetting.getTf2());
+        goalBtn.setTypeface(fontSetting.getTf2());
+        goalBtn.setTextColor(getResources().getColor(R.color.black));
+        cardBtn.setTextColor(getResources().getColor(R.color.black));
+        LoadTrans();
         ClickEvent();
+    }
+
+    private void LoadTrans() {
+        SharePrefHelper sharePrefHelper=new SharePrefHelper(MainActivity.this);
+        lastTransTittle.setText(sharePrefHelper.getString("lastTransTitle","No information"));
+        lastTransDay.setText(sharePrefHelper.getString("lastTransDay"," "));
+        lastTransAmount.setText(sharePrefHelper.getString("lastTransAmount","+0"));
     }
 
     private void ClickEvent() {
@@ -104,6 +122,12 @@ public class MainActivity extends AppCompatActivity {
                 cdd.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
                 cdd.getWindow().getAttributes().windowAnimations = R.style.Animation_Design_BottomSheetDialog;
                 cdd.show();
+                cdd.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialog) {
+                        LoadTrans();
+                    }
+                });
             }
         });
         getCard.setOnClickListener(new View.OnClickListener() {
@@ -120,6 +144,34 @@ public class MainActivity extends AppCompatActivity {
                 cdd.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
                 cdd.getWindow().getAttributes().windowAnimations = R.style.Animation_Design_BottomSheetDialog;
                 cdd.show();
+                cdd.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialog) {
+                        LoadTrans();
+                    }
+                });
+            }
+        });
+        goalCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GoalDialog cdd=new GoalDialog(MainActivity.this);
+
+                WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+                lp.copyFrom(Objects.requireNonNull(cdd.getWindow()).getAttributes());
+                lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+
+
+                cdd.getWindow().setAttributes(lp);
+                cdd.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                cdd.getWindow().getAttributes().windowAnimations = R.style.Animation_Design_BottomSheetDialog;
+                cdd.show();
+                cdd.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialog) {
+                        LoadTrans();
+                    }
+                });
             }
         });
     }
@@ -149,5 +201,8 @@ public class MainActivity extends AppCompatActivity {
         getCard=findViewById(R.id.getCard);
         goalCard=findViewById(R.id.goalCard);
         noteCard=findViewById(R.id.noteCard);
+        lastTransTittle=findViewById(R.id.trans_title);
+        lastTransDay=findViewById(R.id.trans_day);
+        lastTransAmount=findViewById(R.id.trans_amount);
     }
 }
