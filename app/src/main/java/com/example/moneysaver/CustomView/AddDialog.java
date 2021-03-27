@@ -1,0 +1,91 @@
+package com.example.moneysaver.CustomView;
+
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.example.moneysaver.R;
+import com.example.moneysaver.Ultils.SharePrefHelper;
+
+public class AddDialog extends Dialog implements View.OnClickListener {
+    public AddDialog(@NonNull Context context) {
+        super(context);
+    }
+    EditText money;
+    TextView doneBtn;
+    RadioButton rd1,rd2;
+    int type=1;
+    public AddDialog(@NonNull Context context, int themeResId) {
+        super(context, themeResId);
+    }
+
+    protected AddDialog(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener) {
+        super(context, cancelable, cancelListener);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        try {
+            requestWindowFeature(Window.FEATURE_NO_TITLE);
+        }catch (Exception e){}
+
+
+        setContentView(R.layout.add_dialog);
+        money=findViewById(R.id.editTextMoney);
+        doneBtn=findViewById(R.id.dontBtn);
+        rd1=findViewById(R.id.radio1);
+        rd2=findViewById(R.id.radio2);
+        rd1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rd2.setChecked(false);
+                type=1;
+            }
+        });
+        rd2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rd1.setChecked(false);
+                type=2;
+            }
+        });
+        doneBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String result=money.getText().toString();
+                if(!result.isEmpty()){
+                    int amount=0;
+                    try {
+                        amount = Integer.parseInt(result);
+                    } catch(NumberFormatException nfe) {
+                        System.out.println("Could not parse " + nfe);
+                    }
+                    SharePrefHelper sharePrefHelper=new SharePrefHelper(getContext());
+                    if(type==1){
+                        sharePrefHelper.putInt("Total",sharePrefHelper.getInt("Total")+amount);
+                    }
+                    else {
+                        sharePrefHelper.putInt("Total",sharePrefHelper.getInt("Total")+amount);
+                        sharePrefHelper.putInt("Free",sharePrefHelper.getInt("Free")+amount);
+                    }
+                }
+                cancel();
+            }
+        });
+    }
+
+    @Override
+    public void onClick(View v) {
+
+    }
+}

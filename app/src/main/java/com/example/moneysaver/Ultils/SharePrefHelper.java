@@ -19,5 +19,12 @@ public class SharePrefHelper {
     public int getInt(String key){
         return sharedPreferences.getInt(key,0);
     }
+    public void putString(String key,String value){
+        editor.putString(key,value);
+        editor.commit();
+    }
+    public String getString(String key,String defaultString){
+        return sharedPreferences.getString(key,defaultString);
+    }
 
 }

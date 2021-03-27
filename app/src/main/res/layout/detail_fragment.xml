@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:alpha="0.65"
+            android:fontFamily="@font/open_sans"
+            android:text="Total balance"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/totalMoney"
+            android:text="3,332,300 VND"
+            android:textColor="@color/black"
+            android:fontFamily="@font/open_sans_bold"
+            android:textSize="32dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+       android:layout_marginTop="40dp"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:padding="10dp"
+                android:fontFamily="@font/raleway_bold"
+                android:textSize="16dp"
+                android:gravity="center_horizontal"
+                android:text="Total"
+                android:id="@+id/totalBtn"
+                android:background="@drawable/detail_btn"
+                />
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:id="@+id/freeBtn"
+            android:textColor="@color/black"
+            android:fontFamily="@font/raleway_bold"
+            android:textSize="16dp"
+            android:gravity="center_horizontal"
+            android:text="Free"
+            android:background="@color/white"
+            />
+    </LinearLayout>
+
+</LinearLayout>

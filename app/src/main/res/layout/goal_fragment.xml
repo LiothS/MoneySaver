@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/balance"
+            android:text="Saving"
+            android:alpha="0.65"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/open_sans"
+            android:textSize="20dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/totalMoney"
+            android:text="500,000 VND"
+            android:textColor="@color/black"
+            android:fontFamily="@font/open_sans_bold"
+            android:textSize="32dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/thisMonth"
+            android:text="this month"
+            android:alpha="0.65"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/open_sans"
+            android:textSize="20dp"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

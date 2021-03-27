@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="200dp"
-        android:fontFamily="More Fonts..."
+        android:fontFamily="@font/raleway_extrabold"
         android:text="Money Saver App"
         android:textColor="@color/white"
         android:textSize="32dp" />
@@ -24,6 +24,7 @@
         android:layout_below="@id/appName"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:id="@+id/appDes"
         android:fontFamily="@font/raleway"
         android:gravity="center_horizontal"
         android:text="Saving your money per month with this app"
@@ -32,9 +33,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
         android:text="Start"
         android:id="@+id/startBtn"
         android:paddingTop="28dp"
@@ -43,7 +43,7 @@
         android:background="@drawable/start_bg"
         android:paddingBottom="28dp"
         android:fontFamily="@font/raleway_bold"
-        android:textSize="20dp"
+        android:textSize="16dp"
         android:textColor="@color/white"
-        />
+        android:layout_alignParentRight="true" />
 </RelativeLayout>
